@@ -20,12 +20,12 @@ def call(body) {
 				}
 			}
 			stage ('Testing Stage') {
-				withMaven(maven : 'maven_3_5_0') {
+				withMaven(maven : 'MAVEN') {
 					sh 'mvn test'
 				}
 			}
 			stage ('Deployment Stage') {
-				withMaven(maven : 'maven_3_5_0') {
+				withMaven(maven : 'MAVEN') {
 					sh 'mvn deploy'
 				}
 			}			       
