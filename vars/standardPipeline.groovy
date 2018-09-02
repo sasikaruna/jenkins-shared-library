@@ -14,19 +14,19 @@ def call(body) {
 				checkout scm
 			}		
 			stage ('Compile Stage') {   
-				sh "echo 'building ${config.projectName} ...'"
+				bat "echo 'building ${config.projectName} ...'"
 				withMaven(maven : 'maven_3_5_0') {
-					sh 'mvn clean compile'
+					bat 'mvn clean compile'
 				}
 			}
 			stage ('Testing Stage') {
 				withMaven(maven : 'MAVEN') {
-					sh 'mvn test'
+					bat 'mvn test'
 				}
 			}
 			stage ('Deployment Stage') {
 				withMaven(maven : 'MAVEN') {
-					sh 'mvn deploy'
+					bat 'mvn deploy'
 				}
 			}			       
 		} catch (err) {
