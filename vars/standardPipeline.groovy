@@ -15,7 +15,7 @@ def call(body) {
 			}		
 			stage ('Compile Stage') {   
 				bat "echo 'building ${config.projectName} ...'"
-				withMaven(maven : 'maven_3_5_0') {
+				withMaven(maven : 'MAVEN') {
 					bat 'mvn clean compile'
 				}
 			}
